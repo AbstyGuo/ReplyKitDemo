@@ -15,6 +15,7 @@
 		E07B1F701F2ADED400C9EC31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E07B1F6E1F2ADED400C9EC31 /* LaunchScreen.storyboard */; };
 		E07B1F7B1F2ADED400C9EC31 /* recordScreenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E07B1F7A1F2ADED400C9EC31 /* recordScreenTests.m */; };
 		E07B1F861F2ADED400C9EC31 /* recordScreenUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E07B1F851F2ADED400C9EC31 /* recordScreenUITests.m */; };
+		E07B1F951F2B0B9D00C9EC31 /* RPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E07B1F941F2B0B9D00C9EC31 /* RPViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		E07B1F811F2ADED400C9EC31 /* recordScreenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = recordScreenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07B1F851F2ADED400C9EC31 /* recordScreenUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = recordScreenUITests.m; sourceTree = "<group>"; };
 		E07B1F871F2ADED400C9EC31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E07B1F931F2B0B9D00C9EC31 /* RPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPViewController.h; sourceTree = "<group>"; };
+		E07B1F941F2B0B9D00C9EC31 /* RPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				E07B1F641F2ADED400C9EC31 /* AppDelegate.m */,
 				E07B1F661F2ADED400C9EC31 /* ViewController.h */,
 				E07B1F671F2ADED400C9EC31 /* ViewController.m */,
+				E07B1F931F2B0B9D00C9EC31 /* RPViewController.h */,
+				E07B1F941F2B0B9D00C9EC31 /* RPViewController.m */,
 				E07B1F691F2ADED400C9EC31 /* Main.storyboard */,
 				E07B1F6C1F2ADED400C9EC31 /* Assets.xcassets */,
 				E07B1F6E1F2ADED400C9EC31 /* LaunchScreen.storyboard */,
@@ -207,7 +212,8 @@
 				TargetAttributes = {
 					E07B1F5C1F2ADED300C9EC31 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 6452BQV88S;
+						ProvisioningStyle = Manual;
 					};
 					E07B1F751F2ADED400C9EC31 = {
 						CreatedOnToolsVersion = 8.0;
@@ -275,6 +281,7 @@
 			files = (
 				E07B1F681F2ADED400C9EC31 /* ViewController.m in Sources */,
 				E07B1F651F2ADED400C9EC31 /* AppDelegate.m in Sources */,
+				E07B1F951F2B0B9D00C9EC31 /* RPViewController.m in Sources */,
 				E07B1F621F2ADED400C9EC31 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,10 +431,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6452BQV88S;
 				INFOPLIST_FILE = recordScreen/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbar.recordScreen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ganpurj.BangTravels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9118cd73-d4dd-4fce-8845-93a37ee31557";
+				PROVISIONING_PROFILE_SPECIFIER = BangTravelsDevelopment;
 			};
 			name = Debug;
 		};
@@ -435,10 +446,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6452BQV88S;
 				INFOPLIST_FILE = recordScreen/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mapbar.recordScreen;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ganpurj.BangTravels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9118cd73-d4dd-4fce-8845-93a37ee31557";
+				PROVISIONING_PROFILE_SPECIFIER = BangTravelsDevelopment;
 			};
 			name = Release;
 		};
@@ -507,6 +522,7 @@
 				E07B1F8C1F2ADED400C9EC31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E07B1F8D1F2ADED400C9EC31 /* Build configuration list for PBXNativeTarget "recordScreenTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +531,7 @@
 				E07B1F8F1F2ADED400C9EC31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E07B1F901F2ADED400C9EC31 /* Build configuration list for PBXNativeTarget "recordScreenUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +540,7 @@
 				E07B1F921F2ADED400C9EC31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

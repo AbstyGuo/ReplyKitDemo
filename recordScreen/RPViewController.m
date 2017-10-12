@@ -1,10 +1,12 @@
 //
-//  ViewController.m
+//  RPViewController.m
 //  recordScreen
 //
 //  Created by guoyf on 2017/7/28.
 //  Copyright © 2017年 guoyf. All rights reserved.
 //
+
+#import "RPViewController.h"
 
 #import "ViewController.h"
 #import <ReplayKit/ReplayKit.h>
@@ -21,7 +23,7 @@ static NSString *StopRecord = @"结束";
 #define AnimationDuration (0.3)
 
 
-@interface ViewController () <RPPreviewViewControllerDelegate>
+@interface RPViewController () <RPPreviewViewControllerDelegate>
 {
     
 }
@@ -36,10 +38,9 @@ static NSString *StopRecord = @"结束";
 
 @property (nonatomic,strong) UITextField * textField;
 
-
 @end
 
-@implementation ViewController
+@implementation RPViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -220,7 +221,7 @@ static NSString *StopRecord = @"结束";
 //显示视频预览页面，animation=是否要动画显示
 - (void)showVideoPreviewController:(RPPreviewViewController *)previewController withAnimation:(BOOL)animation {
     
-    __weak ViewController *weakSelf = self;
+    __weak RPViewController *weakSelf = self;
     
     //UI需要放到主线程
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -317,13 +318,13 @@ static NSString *StopRecord = @"结束";
         return;
     }
     
-    __weak ViewController *weakSelf = self;
+    __weak RPViewController *weakSelf = self;
     
     NSLog(@"%@ 录制", StartRecord);
     [self showTipWithText:@"录制初始化" activity:YES];
     
-    //在此可以设置是否允许麦克风（传YES即是使用麦克风，传NO则不是用麦克风）
-    [[RPScreenRecorder sharedRecorder] startRecordingWithMicrophoneEnabled:NO handler:^(NSError *error){
+    
+    [[RPScreenRecorder sharedRecorder] startRecordingWithHandler:^(NSError *error){
         NSLog(@"录制开始...");
         [weakSelf hideTip];
         if (error) {
@@ -343,6 +344,7 @@ static NSString *StopRecord = @"结束";
                                                                      repeats:YES];
         }
     }];
+    
 }
 
 - (void)stopRecord {
@@ -351,7 +353,7 @@ static NSString *StopRecord = @"结束";
     [self setButton:self.btnStart enabled:YES];
     [self setButton:self.btnStop enabled:NO];
     
-    __weak ViewController *weakSelf = self;
+    __weak RPViewController *weakSelf = self;
     [[RPScreenRecorder sharedRecorder] stopRecordingWithHandler:^(RPPreviewViewController *previewViewController, NSError *  error){
         
         
@@ -384,7 +386,7 @@ static NSString *StopRecord = @"结束";
 //选择了某些功能的回调（如分享和保存）
 - (void)previewController:(RPPreviewViewController *)previewController didFinishWithActivityTypes:(NSSet <NSString *> *)activityTypes {
     
-    __weak ViewController *weakSelf = self;
+    __weak RPViewController *weakSelf = self;
     if ([activityTypes containsObject:@"com.apple.UIKit.activity.SaveToCameraRoll"]) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -408,6 +410,7 @@ static NSString *StopRecord = @"结束";
         self.progressView.progress = 0.0;
     }
 }
+
 //更新显示的时间
 - (void)updateTimeString {
     NSDateFormatter * dateFormat = [[NSDateFormatter alloc] init] ;
@@ -430,5 +433,4 @@ static NSString *StopRecord = @"结束";
         return YES;
     }
 }
-
 @end
